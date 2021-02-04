@@ -12,9 +12,7 @@ document.getElementById('search_box').oninput = function ()
         results.style.display = 'none'
         return
     }
-    else{
-        results.style.display = 'flex'
-    }
+
 
     let xhr = new XMLHttpRequest()
     let data = JSON.stringify({
@@ -29,11 +27,14 @@ document.getElementById('search_box').oninput = function ()
 
     xhr.onload = ()=>{
         results.innerHTML = null
-        JSON.parse(xhr.response).forEach(child=>{
-            let newChild = document.createElement('li')
-            newChild.innerHTML = child.data
-            results.append(newChild)
-        })
+        if(JSON.parse(xhr.response).length !==0) {
+            results.style.display = 'flex'
+            JSON.parse(xhr.response).forEach(child => {
+                let newChild = document.createElement('li')
+                newChild.innerHTML = child.data
+                results.append(newChild)
+            })
+        }
     }
 }
 
