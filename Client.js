@@ -8,8 +8,12 @@ document.getElementById('search_box').oninput = function ()
 
     if(wordRequest === null || wordRequest === undefined ||wordRequest === '')
     {
-        results.innerHTML=''
+        results.innerHTML= null
+        results.style.display = 'none'
         return
+    }
+    else{
+        results.style.display = 'flex'
     }
 
     let xhr = new XMLHttpRequest()
@@ -24,7 +28,7 @@ document.getElementById('search_box').oninput = function ()
     xhr.send(data)
 
     xhr.onload = ()=>{
-        results.innerHTML = ''
+        results.innerHTML = null
         JSON.parse(xhr.response).forEach(child=>{
             let newChild = document.createElement('li')
             newChild.innerHTML = child.data
@@ -53,6 +57,7 @@ function sendRequest()
 
 
     }
-
-
 }
+
+
+

@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Suggest</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div>
-        <label>
+    <div class="search_bar">
+        <div class="input_bar">
             <input placeholder="Welcome"  id="search_box">
-        </label>
-        <button class="btn" onclick="sendRequest()">search</button>
-        <ul id="results">
+            <button class="btn" onclick="sendRequest()">search</button>
+        </div>
 
+        <ul id="results">
         </ul>
     </div>
 
